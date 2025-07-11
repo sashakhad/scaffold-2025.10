@@ -1,125 +1,94 @@
-# Next.js + TypeScript + Tailwind + Prisma + shadcn-ui Scaffold
+# Modern Full-Stack Scaffold
 
-This project is a modern web app scaffold using:
+A clean, modern scaffold for full-stack web applications built with Next.js 15, React 19, TypeScript, Prisma, and Tailwind CSS.
 
-- [Next.js 15 (App Router)](https://nextjs.org/docs/app)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS v4 (canary)](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Prisma ORM](https://www.prisma.io/)
-- [React Hook Form](https://react-hook-form.com/)
-- [Zod](https://zod.dev/)
-- [Lucide icons](https://lucide.dev/)
-- [pnpm](https://pnpm.io/)
-- Deployed via [Vercel](https://vercel.com/)
+## Features
 
----
+- **Next.js 15** with App Router and Turbopack
+- **React 19** with latest features
+- **TypeScript** with strict configuration
+- **Prisma** with PostgreSQL for database management
+- **Tailwind CSS v4** for styling
+- **ESLint** with Next.js and TypeScript rules
+- **Prettier** for code formatting
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1. Clone + Install
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-pnpm install
-```
+2. **Set up your database:**
+   ```bash
+   # Add your DATABASE_URL to .env
+   echo "DATABASE_URL=\"postgresql://user:password@localhost:5432/dbname\"" > .env
+   
+   # Generate Prisma client
+   npm run db:generate
+   
+   # Push schema to database
+   npm run db:push
+   ```
 
-Make sure you're using Node 18+ and `pnpm`.
+3. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
----
+## Available Scripts
 
-### 2. Environment Setup
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
+- `npm run format` - Format code with Prettier
+- `npm run type-check` - Run TypeScript type checking
+- `npm run db:generate` - Generate Prisma client
+- `npm run db:push` - Push schema changes to database
+- `npm run db:migrate` - Create and apply migrations
+- `npm run db:studio` - Open Prisma Studio
 
-Copy `.env.example` and fill in the actual values:
-
-```bash
-cp .env.example .env
-```
-
-You'll need:
-
-- `DATABASE_URL` for Prisma
-- Any other secrets depending on services (e.g. Vercel, Clerk, S3)
-
----
-
-### 3. Prisma
-
-```bash
-npx prisma generate
-npx prisma migrate dev --name init
-```
-
-Update your `schema.prisma` as needed.
-
----
-
-### 4. shadcn/ui
-
-```bash
-pnpm dlx shadcn-ui@latest init
-```
-
-Follow the CLI prompts:
-
-- Directory: `app`
-- Components path: `components/ui`
-- Tailwind: `yes`
-
----
-
-## ✨ Dev Commands
-
-```bash
-pnpm dev            # start dev server
-pnpm build          # build for prod
-pnpm lint           # run eslint
-pnpm format         # run prettier
-pnpm prisma studio  # open Prisma UI
-```
-
----
-
-## 🧠 Folder Structure
+## Project Structure
 
 ```
-/app
-  /api        – server actions + route handlers
-  /[page]     – app router pages
-/components   – UI components (shadcn style)
-/lib          – utils/helpers
-/prisma       – Prisma schema + migrations
+src/
+├── app/                 # Next.js App Router pages
+│   ├── layout.tsx      # Root layout
+│   ├── page.tsx        # Home page
+│   └── globals.css     # Global styles
+├── components/         # Reusable components
+├── lib/               # Utility functions
+└── types/             # TypeScript type definitions
 ```
 
----
+## Database
 
-## 💅 Tailwind v4 (canary)
+The scaffold includes a basic User model in Prisma. You can extend it by:
 
-Using CSS variables instead of `theme()` in `.ts` files. If you need to use `@apply` with themes, define custom props in `tailwind.config.ts`.
+1. Editing `prisma/schema.prisma`
+2. Running `npm run db:push` to apply changes
+3. Or `npm run db:migrate` for versioned migrations
 
----
+## Styling
 
-## 🧠 Notes
+Uses Tailwind CSS v4 with:
+- Geist fonts (sans and mono)
+- Dark mode support
+- Responsive design utilities
 
-- Uses `@/*` path aliases via `tsconfig.json`
-- Uses `src/` directory layout
-- Designed to work cleanly in Cursor IDE with AI-native refactors and UI generation
-- Vercel + GitHub are set up for CI/CD
+## Type Safety
 
----
+- Strict TypeScript configuration
+- Path aliases configured (`@/` points to `src/`)
+- ESLint rules for TypeScript best practices
 
-## 📦 Deployment (Vercel)
+## Development Workflow
 
-1. Push to GitHub  
-2. Connect repo to Vercel  
-3. Add your `.env` values  
-4. Done ✅
+1. Write code with full TypeScript support
+2. ESLint catches issues automatically
+3. Prettier formats code consistently
+4. Prisma provides type-safe database access
 
----
-
-## 🧪 Testing (optional add-on ideas)
-
-Consider adding later:
-
-- `vitest` for unit testing  
-- `playwright` or `cypress` for E2E  
-- `jest-dom` for UI snapshot tests# scaffold-2025.04
+This scaffold is designed to be minimal but complete, giving you a solid foundation to build upon without unnecessary complexity.
