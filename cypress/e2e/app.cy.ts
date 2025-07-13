@@ -6,8 +6,9 @@ describe("App", () => {
     cy.get("body").should("be.visible");
     cy.get("html").should("have.attr", "lang");
 
-    // Check that the page has some content (without being too specific)
-    cy.get("main, div, body").should("not.be.empty");
+    // Check that the page has some content by looking for specific elements
+    cy.get("h1").should("contain", "Modern Full-Stack Scaffold");
+    cy.get("div").should("exist");
   });
 
   it("should have proper page structure", () => {
