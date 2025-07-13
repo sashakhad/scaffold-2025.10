@@ -47,6 +47,8 @@ jobs:
         run: pnpm run db:generate
       - name: Build app
         run: pnpm run build
+      - name: Install Cypress binary
+        run: pnpm exec cypress install
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
