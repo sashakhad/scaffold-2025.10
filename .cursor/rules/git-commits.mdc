@@ -1,26 +1,23 @@
----
-description: Git commit message conventions and best practices for consistent commit history
-globs: ["**/*"]
-alwaysApply: true
----
-
 # Git Commit Rules
 
 ## Commit Message Format
 
 Use conventional commit format:
+
 ```bash
-<type>[optional scope]: <description>
+<type>(optional scope): <description>
 
 [optional body]
 
 [optional footer(s)]
 ```
 
+- **Scope**: For extra clarity, especially in larger projects, add a scope in parentheses after the type to indicate the area, file, or feature affected. This is optional but recommended for clarity.
+
 ## Commit Types
 
 - `feat`: A new feature
-- `fix`: A bug fix  
+- `fix`: A bug fix
 - `docs`: Documentation only changes
 - `style`: Changes that do not affect the meaning of the code
 - `refactor`: A code change that neither fixes a bug nor adds a feature
@@ -32,14 +29,17 @@ Use conventional commit format:
 
 ```bash
 # ✅ Good examples
-feat: add user authentication system
-fix: resolve Cypress test port mismatch
-docs: update README with setup instructions
+feat(auth): add user authentication system
+fix(form): resolve Cypress test port mismatch
+docs(readme): update README with setup instructions
 style: format code with prettier
-refactor: extract form validation logic
-perf: optimize database queries
-test: add unit tests for UserCard component
-chore: update dependencies
+refactor(validation): extract form validation logic
+perf(db): optimize database queries
+test(user-card): add unit tests for UserCard component
+chore(deps): update dependencies
+
+# ✅ Also valid (no scope, for general changes)
+feat: add user authentication system
 
 # ❌ Bad examples
 feat: add stuff
@@ -96,6 +96,7 @@ fix: resolved navigation bug
 ## Common Patterns
 
 ### Feature Development
+
 ```bash
 feat: add user registration form component
 feat: add form validation with Zod schema
@@ -105,6 +106,7 @@ docs: add registration form documentation
 ```
 
 ### Bug Fixes
+
 ```bash
 fix: resolve Cypress test port mismatch
 fix: prevent form submission with empty fields
@@ -112,6 +114,7 @@ fix: handle API error responses properly
 ```
 
 ### Refactoring
+
 ```bash
 refactor: extract form validation logic to custom hook
 refactor: simplify component prop interface
@@ -121,9 +124,15 @@ refactor: consolidate duplicate API calls
 ## Review Checklist
 
 Before committing, ask yourself:
+
 - [ ] Does this commit do one thing well?
 - [ ] Is the commit message clear and descriptive?
 - [ ] Are all tests passing?
+- [ ] Is the code properly formatted?
+- [ ] Are there any unintended changes included?
+- [ ] Does this commit make sense on its own?
+- [ ] Would this commit be easy to revert if needed?
+
 - [ ] Is the code properly formatted?
 - [ ] Are there any unintended changes included?
 - [ ] Does this commit make sense on its own?
