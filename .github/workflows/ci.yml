@@ -41,17 +41,14 @@ jobs:
         with:
           node-version: 20.x
           cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile || pnpm install
       - name: Generate Prisma Client
         run: pnpm run db:generate
       - name: Build app
         run: pnpm run build
-      - name: Start app
-        run: pnpm start &
-      - name: Run Cypress tests
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          install: false
           start: pnpm start
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 60
