@@ -1,3 +1,10 @@
+---
+description: Git commit rules for a well-structured and maintainable codebase.
+globs:
+  - '**/*'
+alwaysApply: true
+---
+
 # Git Commit Rules
 
 ## Commit Message Format
