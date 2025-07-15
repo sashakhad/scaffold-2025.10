@@ -1,8 +1,5 @@
 ---
-alwaysApply: true
-description: Pre-commit checks to ensure code quality, consistency, and reliability.
-globs:
-  - '**/*'
+title: Pre-Commit Checks Rule
 ---
 
 # Pre-Commit Checks Rule
@@ -31,6 +28,12 @@ pnpm run test:e2e # or pnpm cypress run
 - Document any exceptions or overrides in the relevant place (e.g., README or commit message).
 
 ## Rationale
+
+- Ensures code quality, consistency, and reliability.
+- Prevents broken or unformatted code from entering the repository.
+- Reduces review and CI friction by catching issues early.
+
+---
 
 - Ensures code quality, consistency, and reliability.
 - Prevents broken or unformatted code from entering the repository.
