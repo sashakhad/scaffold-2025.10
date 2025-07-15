@@ -1,8 +1,8 @@
 ---
-description: Component development guidelines.
+description: Component rules for React applications.
 globs:
-  - "**/*.{ts,tsx}"
-alwaysApply: false
+  - '**/*.{ts,tsx}'
+alwaysApply: true
 ---
 
 # Component Rules
@@ -10,6 +10,7 @@ alwaysApply: false
 ## Component Structure
 
 ### Function Declarations
+
 ```typescript
 // ✅ Preferred
 function UserCard({ user, onEdit }: UserCardProps) {
@@ -27,6 +28,7 @@ const UserCard = ({ user, onEdit }: UserCardProps) => {
 ```
 
 ### Props Interface
+
 ```typescript
 // ✅ Define props interface
 interface UserCardProps {
@@ -36,16 +38,17 @@ interface UserCardProps {
 }
 
 // ✅ Use destructuring with defaults
-function UserCard({ 
-  user, 
-  onEdit, 
-  className = "" 
+function UserCard({
+  user,
+  onEdit,
+  className = ""
 }: UserCardProps) {
   return <div className={cn("base-styles", className)}>...</div>
 }
 ```
 
 ### Client Components
+
 ```typescript
 // ✅ Use 'use client' for interactive components
 'use client'
@@ -61,6 +64,7 @@ function InteractiveButton() {
 ## shadcn/ui Integration
 
 ### Component Composition
+
 ```typescript
 // ✅ Compose with shadcn/ui components
 import { Button } from '@/components/ui/button'
@@ -83,6 +87,7 @@ function UserProfile({ user }: UserProfileProps) {
 ```
 
 ### Custom Components
+
 ```typescript
 // ✅ Extend shadcn/ui components
 import { Button } from '@/components/ui/button'
@@ -92,10 +97,10 @@ interface PrimaryButtonProps extends React.ComponentProps<typeof Button> {
   variant?: 'default' | 'destructive'
 }
 
-function PrimaryButton({ 
-  className, 
+function PrimaryButton({
+  className,
   variant = 'default',
-  ...props 
+  ...props
 }: PrimaryButtonProps) {
   return (
     <Button
@@ -113,6 +118,7 @@ function PrimaryButton({
 ## Styling Patterns
 
 ### Tailwind Classes
+
 ```typescript
 // ✅ Use semantic class combinations
 <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-200">
@@ -127,6 +133,7 @@ function PrimaryButton({
 ```
 
 ### Responsive Design
+
 ```typescript
 // ✅ Use responsive prefixes
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -141,15 +148,16 @@ function PrimaryButton({
 ## State Management
 
 ### Local State
+
 ```typescript
 // ✅ Use useState for local component state
 function Counter() {
   const [count, setCount] = useState(0)
-  
+
   function handleIncrement() {
     setCount(prev => prev + 1)
   }
-  
+
   return (
     <div className="flex items-center space-x-2">
       <span className="text-lg">{count}</span>
@@ -160,6 +168,7 @@ function Counter() {
 ```
 
 ### Form State
+
 ```typescript
 // ✅ Use React Hook Form for forms
 import { useForm } from 'react-hook-form'
@@ -173,7 +182,7 @@ function UserForm({ onSubmit }: UserFormProps) {
       email: ''
     }
   })
-  
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -199,6 +208,7 @@ function UserForm({ onSubmit }: UserFormProps) {
 ## Error Handling
 
 ### Error Boundaries
+
 ```typescript
 // ✅ Create error boundaries for component trees
 function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
@@ -217,6 +227,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
 ## Performance
 
 ### Memoization
+
 ```typescript
 // ✅ Use React.memo for expensive components
 const ExpensiveComponent = React.memo(function ExpensiveComponent({ data }: Props) {
@@ -228,7 +239,16 @@ function DataTable({ items }: DataTableProps) {
   const sortedItems = useMemo(() => {
     return items.sort((a, b) => a.name.localeCompare(b.name))
   }, [items])
-  
+
   return <div>{/* render table */}</div>
 }
+```
+
+}, [items])
+
+return <div>{/_ render table _/}</div>
+}
+
+```
+
 ```

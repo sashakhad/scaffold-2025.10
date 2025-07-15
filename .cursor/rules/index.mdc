@@ -1,7 +1,10 @@
 ---
-description:
+description: Rules for the main project.
 globs:
-alwaysApply: false
+  - src/**/*
+  - package.json
+  - README.md
+alwaysApply: true
 ---
 
 # Main Project Rules
@@ -17,6 +20,7 @@ alwaysApply: false
 ## Code Style
 
 ### Function Declarations
+
 ```typescript
 // ✅ Preferred
 function MyComponent() {
@@ -30,19 +34,21 @@ const MyComponent = () => {
 ```
 
 ### TypeScript
+
 ```typescript
 // ✅ Explicit types
 function processUser(user: User): ProcessedUser {
-  return { ...user, processed: true }
+  return { ...user, processed: true };
 }
 
 // ❌ Avoid implicit any
 function processUser(user) {
-  return { ...user, processed: true }
+  return { ...user, processed: true };
 }
 ```
 
 ### Styling
+
 ```typescript
 // ✅ Tailwind classes
 <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
@@ -80,6 +86,11 @@ function processUser(user) {
 - Keep models focused and well-typed
 
 ## Forms & Validation
+
+- Use React Hook Form for form state
+- Use Zod for validation schemas
+- Create reusable form components
+- Validate on both client and server side
 
 - Use React Hook Form for form state
 - Use Zod for validation schemas

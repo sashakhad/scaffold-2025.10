@@ -1,8 +1,10 @@
-# GitHub MCP Integration Rules
-
+---
 description: Rules and best practices for handling GitHub MCP (Multi-Channel Platform) automation in this repository.
-globs: ["**/*"]
+globs: ['**/*']
 alwaysApply: true
+---
+
+# GitHub MCP Integration Rules
 
 ## PR Management
 
@@ -38,11 +40,4 @@ alwaysApply: true
 - Changes to this rules file must be made via PR and require review by a maintainer.
 - All updates to MCP automation logic should be documented in this file or linked documentation.
 
----
-
 _This file governs all MCP automation and bot activity for this repository. For questions or updates, contact the maintainers._
-description:
-globs:
-alwaysApply: false
-
----
