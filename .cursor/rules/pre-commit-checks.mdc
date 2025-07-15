@@ -1,3 +1,7 @@
+---
+title: Pre-Commit Checks Rule
+---
+
 # Pre-Commit Checks Rule
 
 ## Required Quality Gates Before Commit
@@ -30,8 +34,5 @@ pnpm run test:e2e # or pnpm cypress run
 - Ensures code quality, consistency, and reliability.
 - Prevents broken or unformatted code from entering the repository.
 - Reduces review and CI friction by catching issues early.
-  description:
-  globs:
-  alwaysApply: false
 
 ---
