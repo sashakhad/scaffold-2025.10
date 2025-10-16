@@ -136,7 +136,7 @@ Uses Tailwind CSS v4 with shadcn/ui components:
 To add more shadcn/ui components:
 
 ```bash
-npx shadcn@latest add [component-name]
+pnpm dlx shadcn@latest add [component-name]
 ```
 
 Available components: https://ui.shadcn.com/docs/components

@@ -15,6 +15,9 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
+    ignores: ['node_modules/**', '.next/**', 'dist/**', 'out/**', 'coverage/**', 'next-env.d.ts'],
+  },
+  {
     files: ['**/*.{js,jsx,ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
@@ -32,6 +35,19 @@ const eslintConfig = [
       'no-implied-eval': 'error',
       'no-new-func': 'error',
       'no-script-url': 'error',
+    },
+  },
+  {
+    files: [
+      '*.config.{js,cjs,mjs}',
+      'jest.config.js',
+      'postcss.config.mjs',
+      'next.config.ts',
+      'vitest.config.ts',
+      'cypress.config.ts',
+    ],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   ...storybook.configs['flat/recommended'],
